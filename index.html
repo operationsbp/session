@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Legacy Portrait Art | Share Your Experience</title>
 
   <style>
@@ -17,20 +18,35 @@
       --shadow: 0 24px 70px rgba(54, 43, 25, .12);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      background: radial-gradient(circle at top, #fffdf9 0, var(--ivory) 58%, #eee7da 100%);
+      background:
+        radial-gradient(
+          circle at top,
+          #fffdf9 0,
+          var(--ivory) 58%,
+          #eee7da 100%
+        );
       color: var(--ink);
       font-family: Inter, Montserrat, Arial, sans-serif;
     }
 
-    button, input, textarea { font: inherit; }
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
 
-    button, a {
+    button,
+    a {
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -63,14 +79,6 @@
       pointer-events: none;
     }
 
-    .logo {
-      display: block;
-      width: min(100%, 205px);
-      height: auto;
-      margin: -24px auto 22px;
-      object-fit: contain;
-    }
-
     .eyebrow {
       margin: 0 0 12px;
       color: var(--gold-dark);
@@ -81,15 +89,30 @@
       text-transform: uppercase;
     }
 
-    h1, h2, h3 {
+    .front-logo {
+      display: block;
+      width: min(100%, 175px);
+      height: auto;
+      margin: 0 auto 28px;
+    }
+
+    h1,
+    h2,
+    h3 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
       font-weight: 400;
       line-height: 1.12;
     }
 
-    h1, h2 { font-size: clamp(34px, 6vw, 55px); }
-    h3 { font-size: clamp(25px, 4vw, 34px); }
+    h1,
+    h2 {
+      font-size: clamp(34px, 6vw, 55px);
+    }
+
+    h3 {
+      font-size: clamp(25px, 4vw, 34px);
+    }
 
     .lede {
       max-width: 590px;
@@ -97,6 +120,10 @@
       color: var(--muted);
       font: 17px/1.75 Georgia, "Times New Roman", serif;
     }
+
+    /* =========================
+       STARS
+    ========================= */
 
     .stars {
       display: flex;
@@ -114,26 +141,70 @@
       cursor: pointer;
       font-size: clamp(44px, 10vw, 70px);
       line-height: 1;
-      filter: drop-shadow(0 4px 5px rgba(141, 106, 47, .16));
+      filter: drop-shadow(
+        0 4px 5px rgba(141, 106, 47, .16)
+      );
       transition: color .2s ease, transform .2s ease;
     }
 
-    .star:hover, .star.active {
+    .star:hover,
+    .star.active {
       color: var(--gold-dark);
       transform: translateY(-3px) scale(1.04);
     }
 
-    .hint, .privacy, .status, .copy-status {
+    .hint {
       color: var(--muted);
       font-size: 13px;
       line-height: 1.6;
     }
 
-    .back {
-      position: absolute;
-      z-index: 2;
-      top: 28px;
-      left: 28px;
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gold-dark);
+      padding: 15px 24px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      font: 700 11px/1.35 Inter, Arial, sans-serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-gold {
+      background: var(--gold-dark);
+      color: #fff;
+    }
+
+    .button-gold:hover {
+      background: #735323;
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--gold-dark);
+    }
+
+    .button-outline:hover {
+      background: #f6efe2;
+    }
+
+    .text-button {
       appearance: none;
       border: 0;
       background: transparent;
@@ -142,6 +213,28 @@
       font: 700 11px/1.3 Inter, Arial, sans-serif;
       letter-spacing: .13em;
       text-transform: uppercase;
+    }
+
+    .change-rating {
+      display: block;
+      margin: 26px auto 0;
+      padding: 8px;
+    }
+
+    .change-rating:hover {
+      text-decoration: underline;
+      transform: none;
+    }
+
+    /* =========================
+       FIVE STAR SCREEN
+    ========================= */
+
+    .five-stars {
+      margin: 0 0 16px;
+      color: var(--gold);
+      font-size: 27px;
+      letter-spacing: .16em;
     }
 
     .choice {
@@ -166,6 +259,29 @@
       color: var(--muted);
       line-height: 1.65;
     }
+
+    .dictation-note {
+      max-width: 535px;
+      margin: 4px auto 24px;
+      padding: 16px 18px;
+      border-top: 1px solid rgba(183,146,74,.34);
+      border-bottom: 1px solid rgba(183,146,74,.34);
+      color: var(--muted);
+      font: 14px/1.65 Georgia, "Times New Roman", serif;
+    }
+
+    .dictation-note span {
+      margin-right: 7px;
+      color: var(--gold-dark);
+    }
+
+    .dictation-note strong {
+      color: var(--ink);
+    }
+
+    /* =========================
+       ASSISTANT
+    ========================= */
 
     .assistant {
       margin-top: 24px;
@@ -197,7 +313,7 @@
 
     .progress span {
       display: block;
-      width: 33.333%;
+      width: 25%;
       height: 100%;
       background: var(--gold);
       transition: width .25s ease;
@@ -217,29 +333,35 @@
       font: 24px/1.35 Georgia, "Times New Roman", serif;
     }
 
-    textarea, input {
+    textarea {
       width: 100%;
+      margin-top: 12px;
       border: 1px solid var(--line);
       border-radius: 0;
       background: #fff;
       color: var(--ink);
       padding: 15px 16px;
       font: 16px/1.55 Georgia, "Times New Roman", serif;
-    }
-
-    textarea {
-      margin-top: 12px;
-      min-height: 130px;
       resize: vertical;
+      min-height: 130px;
     }
 
-    textarea:focus, input:focus {
+    textarea:focus {
       outline: 3px solid rgba(183,146,74,.18);
       outline-offset: 2px;
       border-color: var(--gold);
     }
 
-    .actions, .result-actions {
+    .status {
+      min-height: 22px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .helper-actions,
+    .result-actions {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -247,62 +369,177 @@
       margin-top: 18px;
     }
 
-    .button {
-      display: inline-flex;
-      min-height: 52px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--gold-dark);
-      padding: 15px 24px;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      font: 700 11px/1.35 Inter, Arial, sans-serif;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      transition: background .2s ease, color .2s ease, transform .2s ease;
-    }
-
-    .button:hover { transform: translateY(-2px); }
-
-    .button-gold {
-      background: var(--gold-dark);
-      color: #fff;
-    }
-
-    .button-gold:hover { background: #735323; }
-
-    .button-outline {
-      background: transparent;
-      color: var(--gold-dark);
-    }
-
-    .button-outline:hover { background: #f6efe2; }
-
-    .text-button {
-      appearance: none;
-      border: 0;
-      background: transparent;
-      color: var(--gold-dark);
-      cursor: pointer;
-      font: 700 11px/1.3 Inter, Arial, sans-serif;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
+    /* =========================
+       RESULT
+    ========================= */
 
     .result {
       margin-top: 32px;
       text-align: left;
     }
 
-    .result h3 { margin-bottom: 15px; }
+    .result h3 {
+      margin-bottom: 15px;
+    }
 
-    .result textarea { min-height: 250px; }
+    .result textarea {
+      min-height: 250px;
+    }
 
     .result-actions {
       justify-content: flex-start;
       flex-wrap: wrap;
     }
+
+    .copy-status {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .result-intro {
+      margin: -2px 0 18px;
+      color: var(--muted);
+      font: 15px/1.65 Georgia, "Times New Roman", serif;
+    }
+
+    .photo-note {
+      margin-top: 28px;
+      padding: 24px;
+      background: #f8f3e9;
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .photo-note h3 {
+      font-size: clamp(22px, 4vw, 28px);
+    }
+
+    .photo-note p:not(.choice-kicker):not(.photo-note-small) {
+      max-width: 540px;
+      margin: 12px auto 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .photo-note-small {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-style: italic;
+    }
+
+    .share-choice {
+      margin-top: 30px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .share-option {
+      margin-top: 18px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: #fff;
+      text-align: center;
+    }
+
+    .share-option-primary {
+      background: #f8f3e9;
+    }
+
+    .share-option h3 {
+      font-size: clamp(22px, 4vw, 28px);
+    }
+
+    .share-option p:not(.choice-kicker) {
+      max-width: 535px;
+      margin: 10px auto 20px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .options-section {
+      margin-top: 48px;
+    }
+
+    .options-section > .choice-kicker {
+      margin: 0 0 24px;
+    }
+
+    .private-feedback-cta {
+      margin: 0 auto;
+      padding: 32px clamp(20px, 5vw, 38px);
+      background: #f8f3e9;
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .private-feedback-cta h3 {
+      margin: 0;
+    }
+
+    .private-feedback-cta p {
+      max-width: 535px;
+      margin: 13px auto 22px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .private-feedback-form {
+      width: 100%;
+      max-width: 680px;
+      height: 720px;
+      margin: 26px auto 0;
+      overflow: visible;
+      border-radius: 8px;
+    }
+
+    .private-feedback-form iframe {
+      display: block;
+      width: 100%;
+      height: 720px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .five-star-options {
+      margin-top: 34px;
+    }
+
+    .google-primary {
+      padding: 30px clamp(20px, 5vw, 38px);
+      background: #f8f3e9;
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .google-primary h3 {
+      margin: 0;
+    }
+
+    .google-primary p {
+      max-width: 535px;
+      margin: 13px auto 22px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .google-primary .button {
+      min-width: min(100%, 360px);
+    }
+
+    .google-photo-note {
+      max-width: 500px;
+      margin: 15px auto 0;
+      color: var(--muted);
+      font: 14px/1.6 Georgia, "Times New Roman", serif;
+    }
+
+
+
+    /* =========================
+       DIVIDER
+    ========================= */
 
     .divider {
       display: flex;
@@ -313,30 +550,56 @@
       font: italic 15px Georgia, serif;
     }
 
-    .divider::before, .divider::after {
+    .divider::before,
+    .divider::after {
       content: "";
       flex: 1;
       height: 1px;
       background: var(--line);
     }
 
-    .direct { text-align: center; }
+    .direct {
+      text-align: center;
+    }
 
     .privacy {
       margin: 25px auto 0;
       max-width: 500px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
     }
 
-    .screen { animation: fade .36s ease both; }
+    /* =========================
+       OTHER SCREENS
+    ========================= */
 
-    [hidden] { display: none !important; }
+    .screen {
+      animation: fade .36s ease both;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
 
     @keyframes fade {
-      from { opacity: 0; transform: translateY(9px); }
-      to { opacity: 1; transform: none; }
+      from {
+        opacity: 0;
+        transform: translateY(9px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
 
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 580px) {
+
       .app {
         padding: 0;
         min-height: auto;
@@ -348,14 +611,30 @@
         padding: 58px 24px 44px;
       }
 
-      .card::before { inset: 8px; }
-
-      .back {
-        top: 22px;
-        left: 22px;
+      .card::before {
+        inset: 8px;
       }
 
-      .choice { padding: 25px 18px; }
+      .choice {
+        padding: 25px 18px;
+      }
+
+      .options-section {
+        margin-top: 40px;
+      }
+
+      .options-section > .choice-kicker {
+        margin-bottom: 22px;
+      }
+
+      .private-feedback-cta {
+        padding: 28px 18px;
+      }
+
+      .private-feedback-form {
+        max-width: 100%;
+        height: 720px;
+      }
 
       .assistant-heading {
         display: block;
@@ -366,378 +645,944 @@
         margin-top: 8px;
       }
 
-      .actions, .result-actions {
+      .helper-actions,
+      .result-actions {
         align-items: stretch;
         flex-direction: column-reverse;
       }
 
-      .actions .button, .result-actions .button {
+      .helper-actions .button,
+      .result-actions .button {
         width: 100%;
       }
 
-      .question label { font-size: 21px; }
+      .question label {
+        font-size: 21px;
+      }
     }
-  </style>
+      .google-feedback-placeholder {
+      pointer-events: none;
+      cursor: default;
+    }
+
+</style>
 </head>
 
 <body>
+
   <div id="app" class="app">
+
     <main class="shell">
 
-      <!-- RATING -->
-      <section id="rating-screen" class="card screen">
-        <img
-          class="logo"
-          src="https://assets.cdn.filesafe.space/7rKR9Qhn3GbsBXuX830H/media/698f70a524813c2fb954a085.png"
-          alt="Legacy Portrait Art"
-        >
+      <!-- =================================
+           SCREEN 1: RATING
+      ================================== -->
 
-        <h1>How was your experience?</h1>
-
-        <p class="lede">
-          While today is still fresh, we’d love to know how we did.
-        </p>
-
-        <div class="stars" role="radiogroup" aria-label="Rate your experience from 1 to 5 stars">
-          <button class="star" type="button" data-rating="1" aria-label="1 star">★</button>
-          <button class="star" type="button" data-rating="2" aria-label="2 stars">★</button>
-          <button class="star" type="button" data-rating="3" aria-label="3 stars">★</button>
-          <button class="star" type="button" data-rating="4" aria-label="4 stars">★</button>
-          <button class="star" type="button" data-rating="5" aria-label="5 stars">★</button>
-        </div>
-
-        <p id="rating-hint" class="hint">Tap a star to begin</p>
-      </section>
-
-      <!-- PRIVATE FEEDBACK: 1-4 -->
-      <section id="feedback-screen" class="card screen" hidden>
-        <button class="back" type="button" data-go="rating">← Back</button>
+      <section
+        id="rating-screen"
+        class="card screen"
+      >
 
         <img
-          class="logo"
+          class="front-logo"
           src="https://assets.cdn.filesafe.space/7rKR9Qhn3GbsBXuX830H/media/698f70a524813c2fb954a085.png"
           alt="Legacy Portrait Art"
-        >
+        />
 
-        <p class="eyebrow">Private feedback</p>
-
-        <h2>Thank you for your honesty.</h2>
+        <h1>
+          How was your experience?
+        </h1>
 
         <p class="lede">
-          We care deeply about every family we serve. Your note comes directly
-          to our studio so we can continually improve.
+          Please share your thoughts with us.
         </p>
 
-        <!-- Replace this entire iframe with your new GHL form when ready. -->
-        <div style="margin-top:30px;width:100%;">
-          <iframe
-            src="https://api.leadconnectorhq.com/widget/form/yJVleJqW4I5uFPpn2W0l"
-            style="width:100%;height:100%;border:none;border-radius:8px"
-            id="inline-yJVleJqW4I5uFPpn2W0l"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="Session Form 1-4 Stars"
-            data-height="598"
-            data-layout-iframe-id="inline-yJVleJqW4I5uFPpn2W0l"
-            data-form-id="yJVleJqW4I5uFPpn2W0l"
-            title="Session Form 1-4 Stars">
-          </iframe>
-          <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+        <div
+          class="stars"
+          role="radiogroup"
+          aria-label="Rate your experience from 1 to 5 stars"
+        >
+
+          <button
+            class="star"
+            type="button"
+            data-rating="1"
+            aria-label="1 star"
+          >★</button>
+
+          <button
+            class="star"
+            type="button"
+            data-rating="2"
+            aria-label="2 stars"
+          >★</button>
+
+          <button
+            class="star"
+            type="button"
+            data-rating="3"
+            aria-label="3 stars"
+          >★</button>
+
+          <button
+            class="star"
+            type="button"
+            data-rating="4"
+            aria-label="4 stars"
+          >★</button>
+
+          <button
+            class="star"
+            type="button"
+            data-rating="5"
+            aria-label="5 stars"
+          >★</button>
+
         </div>
+
+        <p id="rating-hint" class="hint">
+          Tap a star to begin
+        </p>
+
       </section>
 
-      <!-- FIVE STARS -->
-      <section id="five-screen" class="card screen" hidden>
-        <button class="back" type="button" data-go="rating">← Back</button>
 
-        <div style="color:var(--gold);font-size:27px;letter-spacing:.16em;margin-bottom:16px;">
+      <!-- =================================
+           SCREEN 2: REVIEW CONCIERGE
+      ================================== -->
+
+      <section
+        id="five-screen"
+        class="card screen"
+        hidden
+      >
+
+        <div id="rating-stars-display" class="five-stars">
           ★★★★★
         </div>
 
-        <p class="eyebrow">Thank you</p>
-
-        <h2>We’re so glad you loved your session!</h2>
-
-        <p class="lede">
-          Would you share a few words? Your story can help another family feel
-          excited and confident about creating portraits with Legacy Portrait Art.
+        <p class="eyebrow" id="experience-eyebrow">
+          Thank you
         </p>
 
+        <h2 id="experience-heading">
+          We’re so glad you loved your experience.
+        </h2>
+
+        <p class="lede" id="experience-lede">
+          Would you share a few words? Your story helps another
+          family imagine what creating something meaningful
+          with Legacy Portrait Art can feel like.
+        </p>
+
+
         <div class="choice">
-          <p class="choice-kicker">Your session. Your story.</p>
 
-          <h3>How did your portrait session make you feel?</h3>
-
-          <p>
-            Answer three simple questions, and in about a minute our Review
-            Concierge will turn <em>your own thoughts and words</em> into a
-            polished, editable review, ready to copy and share.
+          <p class="choice-kicker">
+            Your experience. Your story.
           </p>
 
-          <button id="open-helper" class="button button-gold" type="button">
+          <h3>
+            Tell us what you’d like to say.
+          </h3>
+
+          <p>
+            Answer two simple questions, and our Review Concierge
+            will organize your own thoughts and words into a polished,
+            editable review.
+          </p>
+
+          <p class="dictation-note">
+            <span>♢</span>
+            <strong>Prefer to talk?</strong>
+            Tap the microphone on your device’s keyboard
+            and speak naturally.
+          </p>
+
+          <button
+            id="open-helper"
+            class="button button-gold"
+            type="button"
+          >
             Help me write my review
           </button>
+
         </div>
 
-        <div id="assistant" class="assistant" hidden>
+
+        <!-- =================================
+             AI REVIEW ASSISTANT
+        ================================== -->
+
+        <div
+          id="assistant"
+          class="assistant"
+          hidden
+        >
+
           <div class="assistant-heading">
+
             <div>
-              <p class="eyebrow">Your review concierge</p>
-              <h3>Let’s begin with today’s session.</h3>
+
+              <p class="eyebrow">
+                Your review concierge
+              </p>
+
+              <h3>
+                Let’s begin with your experience.
+              </h3>
+
             </div>
-            <span class="time">About 60 seconds</span>
+
+            <span class="time">
+              About 30 seconds
+            </span>
+
           </div>
 
+
           <form id="review-form">
+
             <div class="progress">
               <span id="progress-bar"></span>
             </div>
 
-            <p id="step-label" class="step">Question 1 of 3</p>
+            <p
+              id="step-label"
+              class="step"
+            >
+              Question 1 of 2
+            </p>
+
 
             <div class="question">
-              <label id="ai-question" for="ai-answer">
-                How did you feel before your session, and how did your photographer
-                help you feel comfortable or confident?
+
+              <label
+                id="ai-question"
+                for="ai-answer"
+              >
+What did you love most about your experience with us, from your photography session through seeing your portraits for the first time?
               </label>
 
-              <textarea id="ai-answer" rows="5" placeholder="Write whatever comes naturally…" required></textarea>
+              <textarea
+                id="ai-answer"
+                rows="5"
+                placeholder="Write whatever comes naturally…"
+                autocomplete="off"
+              ></textarea>
+
             </div>
 
-            <p id="ai-status" class="status" role="status" aria-live="polite"></p>
 
-            <div class="actions">
-              <button id="helper-back" class="text-button" type="button" hidden>
+            <p
+              id="ai-status"
+              class="status"
+              role="status"
+              aria-live="polite"
+            ></p>
+
+
+            <div class="helper-actions">
+
+              <button
+                id="helper-back"
+                class="text-button"
+                type="button"
+                hidden
+              >
                 Previous
               </button>
 
-              <button id="helper-next" class="button button-gold" type="submit">
-                Next question
+              <button
+                id="helper-next"
+                class="button button-gold"
+                type="submit"
+              >
+                Continue
               </button>
+
             </div>
+
           </form>
 
-          <div id="review-result" class="result" hidden>
-            <p class="eyebrow">Here’s your review</p>
 
-            <h3>Make it sound exactly like you.</h3>
+          <!-- =================================
+               GENERATED REVIEW
+          ================================== -->
 
-            <textarea id="generated-review" rows="10" aria-label="Your editable review"></textarea>
+          <div
+            id="review-result"
+            class="result"
+            hidden
+          >
+
+            <p class="eyebrow">
+              Your review is ready
+            </p>
+
+            <h3>
+              Make it sound exactly like you.
+            </h3>
+
+            <p class="result-intro">
+              We’ve organized your thoughts into a review.
+              Read through it and make any changes you’d like
+              before sharing.
+            </p>
+
+            <textarea
+              id="generated-review"
+              rows="10"
+              aria-label="Your editable review"
+            ></textarea>
+
 
             <div class="result-actions">
-              <button id="copy-review" class="button button-gold" type="button">
-                Copy my review
+
+              <button
+                id="copy-review"
+                class="button button-gold"
+                type="button"
+              >
+                Copy My Review &amp; Share on Google
               </button>
 
+            </div>
+
+            <p
+              id="copy-status"
+              class="copy-status"
+              role="status"
+            ></p>
+
+
+          </div>
+
+        </div>
+
+
+        <div id="review-options" class="options-section">
+
+          <!-- 5-STAR: GOOGLE IS THE PRIMARY NEXT STEP -->
+
+          <div
+            id="five-star-options"
+            class="five-star-options"
+            hidden
+          >
+
+            <div class="google-primary">
+
+              <p class="choice-kicker">
+                Already know what you’d like to say?
+              </p>
+
               <a
-                class="button button-outline"
+                class="button button-gold"
                 href="https://g.page/r/CUIJZHfwiFIUEBM/review"
                 target="_blank"
                 rel="noopener"
               >
-                Share on Google
+                Share Your Review on Google
               </a>
+
+              <p class="google-photo-note">
+                If your portrait is already hanging in your home,
+                consider adding a photo to your Google review.
+                It helps other families imagine what their own
+                finished artwork could look like.
+              </p>
+
             </div>
 
-            <p id="copy-status" class="copy-status" role="status"></p>
 
-            <button id="start-over" class="text-button" type="button">
-              Start over
-            </button>
+            
+
           </div>
-        </div>
 
-        <div class="divider"><span>or</span></div>
 
-        <div class="direct">
-          <p class="choice-kicker">Already know what you’d like to say?</p>
+          <!-- 1-4 STAR: PRIVATE FEEDBACK IS PROMINENT,
+               GOOGLE REMAINS AVAILABLE -->
 
-          <a
-            class="button button-outline"
-            href="https://g.page/r/CUIJZHfwiFIUEBM/review"
-            target="_blank"
-            rel="noopener"
+          <div
+            id="other-rating-options"
+            class="options-section"
+            hidden
           >
-            Leave a Google review
-          </a>
+
+            <div class="private-feedback-cta">
+
+              <p class="choice-kicker">
+                PRIVATE
+              </p>
+
+              <h3>
+                Share Your Feedback With Our Team
+              </h3>
+
+              <p>
+                Your comments go directly to our team so we can better understand your experience.
+                If you’d like, a member of our team can also follow up with you personally.
+              </p>
+
+              <div class="private-feedback-form">
+
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/form/lB8G9JU7tbJBhwjnkYht"
+                  style="width:100%;height:100%;border:none;border-radius:8px"
+                  id="inline-lB8G9JU7tbJBhwjnkYht"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Review Form 1-4 Stars"
+                  data-height="598"
+                  data-layout-iframe-id="inline-lB8G9JU7tbJBhwjnkYht"
+                  data-form-id="lB8G9JU7tbJBhwjnkYht"
+                  title="Review Form 1-4 Stars"
+                >
+                </iframe>
+
+                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
+              </div>
+
+            </div>
+
+
+            <div class="divider">
+              <span>or</span>
+            </div>
+
+
+            <div class="direct">
+
+              <a
+                class="button button-outline google-feedback-placeholder"
+                aria-disabled="true"
+                tabindex="-1"
+              >
+                Share Your Feedback on Google
+              </a>
+
+            
+            <button
+              id="change-rating-other"
+              class="text-button change-rating"
+              type="button"
+            >
+              Change my rating
+            </button>
+
+</div>
+
+          </div>
+
         </div>
+
 
         <p class="privacy">
-          Your words are always your own. Please share only what genuinely
-          reflects your experience.
+          Your words are always your own. Please share only what
+          genuinely reflects your experience.
         </p>
+
       </section>
 
+
     </main>
+
   </div>
 
+
   <script>
-    const QUESTIONS = [
-      "How did you feel before your session, and how did your photographer help you feel comfortable or confident?",
-      "What part of today’s photography session did you enjoy most?",
-      "Who was your photographer, or is there another team member you’d like to recognize, and what did you appreciate about them?"
-    ];
+
+    /* =========================================
+       YOUR EXISTING VERCEL ENDPOINT
+    ========================================= */
 
     const API_URL = "/api/openai";
 
-    const screens = {
-      rating: document.getElementById("rating-screen"),
-      feedback: document.getElementById("feedback-screen"),
-      five: document.getElementById("five-screen")
-    };
 
-    const stars = [...document.querySelectorAll(".star")];
-    const ratingHint = document.getElementById("rating-hint");
+    /* =========================================
+       GOOGLE REVIEW URL
+    ========================================= */
+
+    const GOOGLE_REVIEW_URL =
+      "https://g.page/r/CUIJZHfwiFIUEBM/review";
+
+
+    /* =========================================
+       QUESTIONS
+
+       These can be changed whenever you want.
+    ========================================= */
+
+    const QUESTIONS = [
+
+      "What did you love most about your experience with us, from your photography session through seeing your portraits for the first time?",
+
+      "When you saw your finished portraits, what stood out to you most—and how did they make you feel?"
+
+    ];
+
+    function getQuestions() {
+
+      return QUESTIONS;
+
+    }
+
+
+    /* =========================================
+       ELEMENTS
+    ========================================= */
+
+    const ratingScreen =
+      document.getElementById("rating-screen");
+
+    const fiveScreen =
+      document.getElementById("five-screen");
+
+    const experienceEyebrow =
+      document.getElementById("experience-eyebrow");
+
+    const experienceHeading =
+      document.getElementById("experience-heading");
+
+    const experienceLede =
+      document.getElementById("experience-lede");
+
+    const ratingStarsDisplay =
+      document.getElementById("rating-stars-display");
+
+    const fiveStarOptions =
+      document.getElementById("five-star-options");
+
+    const otherRatingOptions =
+      document.getElementById("other-rating-options");
+
+    const stars =
+      document.querySelectorAll(".star");
+
+    const ratingHint =
+      document.getElementById("rating-hint");
+
+    const openHelper =
+      document.getElementById("open-helper");
+
+    const changeRatingOther =
+      document.getElementById("change-rating-other");
+
+    const assistant =
+      document.getElementById("assistant");
+
+    const reviewForm =
+      document.getElementById("review-form");
+
+    const aiQuestion =
+      document.getElementById("ai-question");
+
+    const aiAnswer =
+      document.getElementById("ai-answer");
+
+    const aiStatus =
+      document.getElementById("ai-status");
+
+    const helperNext =
+      document.getElementById("helper-next");
+
+    const helperBack =
+      document.getElementById("helper-back");
+
+    const progressBar =
+      document.getElementById("progress-bar");
+
+    const stepLabel =
+      document.getElementById("step-label");
+
+    const reviewResult =
+      document.getElementById("review-result");
+
+    const generatedReview =
+      document.getElementById("generated-review");
+
+    const copyReview =
+      document.getElementById("copy-review");
+
+    const copyStatus =
+      document.getElementById("copy-status");
+
+     const changeRatingFeedback =
+      document.getElementById("change-rating-feedback");
+
+ 
+    /* =========================================
+       STATE
+    ========================================= */
 
     let selectedRating = 0;
+
     let currentStep = 1;
+
     let answers = [];
+
     let busy = false;
 
-    function showScreen(name) {
-      Object.entries(screens).forEach(([key, screen]) => {
-        screen.hidden = key !== name;
+
+    /* =========================================
+       SCREEN
+    ========================================= */
+
+    function showScreen(screen) {
+
+      ratingScreen.hidden =
+        screen !== "rating";
+
+      fiveScreen.hidden =
+        screen !== "five";
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
       });
 
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
+
+
+    /* =========================================
+       REVIEW CONCIERGE EXPERIENCE MESSAGE
+    ========================================= */
+
+    function setExperienceMessage(rating) {
+
+      ratingStarsDisplay.textContent =
+        "★".repeat(rating) + "☆".repeat(5 - rating);
+
+      fiveStarOptions.hidden =
+        rating !== 5;
+
+      otherRatingOptions.hidden =
+        rating === 5;
+
+      const conciergeChoice =
+        openHelper.closest(".choice");
+
+      if (conciergeChoice) {
+        conciergeChoice.hidden =
+          rating !== 5;
+      }
+
+      if (rating === 5) {
+
+        experienceEyebrow.textContent =
+          "Thank you";
+
+        experienceHeading.textContent =
+          "We’re so glad you loved your experience.";
+
+        experienceLede.textContent =
+          "Would you share a few words? Your story helps another family imagine what creating something meaningful with Legacy Portrait Art can feel like.";
+
+      } else {
+
+        experienceEyebrow.textContent =
+          "Thank you for sharing";
+
+        experienceHeading.textContent =
+          "Tell us about your experience.";
+
+        experienceLede.textContent =
+          "Your feedback helps us understand what went well and where we can improve. You’re welcome to share it privately with our team or publicly on Google.";
+
+      }
+
+    }
+
+
+    /* =========================================
+       STARS
+    ========================================= */
 
     function paintStars(rating) {
+
       stars.forEach(star => {
+
+        const value =
+          Number(star.dataset.rating);
+
         star.classList.toggle(
           "active",
-          Number(star.dataset.rating) <= rating
+          value <= rating
         );
+
       });
+
     }
+
 
     stars.forEach(star => {
-      star.addEventListener("mouseenter", () => {
-        paintStars(Number(star.dataset.rating));
-      });
 
-      star.addEventListener("click", () => {
-        selectedRating = Number(star.dataset.rating);
-        paintStars(selectedRating);
+      star.addEventListener(
+        "mouseenter",
+        () => {
 
-        try {
-          sessionStorage.setItem(
-            "reviewExperienceRating",
-            String(selectedRating)
+          paintStars(
+            Number(star.dataset.rating)
           );
-        } catch {}
 
-        if (selectedRating === 5) {
-          showScreen("five");
-        } else {
-          showScreen("feedback");
         }
-      });
+      );
+
+
+      star.addEventListener(
+        "click",
+        () => {
+
+          selectedRating =
+            Number(star.dataset.rating);
+
+          paintStars(
+            selectedRating
+          );
+
+
+          setExperienceMessage(selectedRating);
+
+          showScreen("five");
+
+        }
+      );
+
     });
 
-    document.querySelector(".stars").addEventListener("mouseleave", () => {
-      paintStars(selectedRating);
-    });
 
-    document.querySelectorAll("[data-go='rating']").forEach(button => {
-      button.addEventListener("click", () => showScreen("rating"));
-    });
+    document
+      .querySelector(".stars")
+      .addEventListener(
+        "mouseleave",
+        () => {
 
-    const assistant = document.getElementById("assistant");
-    const openHelper = document.getElementById("open-helper");
-    const reviewForm = document.getElementById("review-form");
-    const aiQuestion = document.getElementById("ai-question");
-    const aiAnswer = document.getElementById("ai-answer");
-    const aiStatus = document.getElementById("ai-status");
-    const helperNext = document.getElementById("helper-next");
-    const helperBack = document.getElementById("helper-back");
-    const progressBar = document.getElementById("progress-bar");
-    const stepLabel = document.getElementById("step-label");
-    const reviewResult = document.getElementById("review-result");
-    const generatedReview = document.getElementById("generated-review");
-    const copyReview = document.getElementById("copy-review");
-    const copyStatus = document.getElementById("copy-status");
-    const startOver = document.getElementById("start-over");
+          paintStars(
+            selectedRating
+          );
 
-    openHelper.addEventListener("click", () => {
-      assistant.hidden = false;
+        }
+      );
+
+
+    /* =========================================
+       CHANGE RATING
+    ========================================= */
+
+    function goBackToRating() {
+
+      selectedRating = 0;
+
+      paintStars(0);
+
       resetInterview();
 
-      assistant.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+      showScreen("rating");
 
-      setTimeout(() => aiAnswer.focus(), 350);
-    });
+      ratingHint.textContent =
+        "Tap a star to begin";
 
-    function updateProgress() {
-      stepLabel.textContent = `Question ${currentStep} of ${QUESTIONS.length}`;
-      progressBar.style.width = `${(currentStep / QUESTIONS.length) * 100}%`;
-      helperBack.hidden = currentStep === 1;
-      helperNext.textContent =
-        currentStep === QUESTIONS.length
-          ? "Create my review"
-          : "Next question";
+      setTimeout(
+        () => {
+          const firstStar =
+            document.querySelector('.star[data-rating="1"]');
+
+          if (firstStar) firstStar.focus();
+        },
+        350
+      );
+
     }
 
+
+     /* =========================================
+       OPEN REVIEW ASSISTANT
+    ========================================= */
+
+    changeRatingOther.addEventListener(
+      "click",
+      goBackToRating
+    );
+
+
+    openHelper.addEventListener(
+      "click",
+      () => {
+
+        assistant.hidden = false;
+
+        resetInterview();
+
+        assistant.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+        setTimeout(
+          () => aiAnswer.focus(),
+          350
+        );
+
+      }
+    );
+
+
+    /* =========================================
+       RESET
+    ========================================= */
+
     function resetInterview() {
+
       currentStep = 1;
+
       answers = [];
+
       busy = false;
 
       aiAnswer.value = "";
-      aiQuestion.textContent = QUESTIONS[0];
+
+      aiQuestion.textContent =
+        getQuestions()[0];
+
       aiStatus.textContent = "";
+
       reviewResult.hidden = true;
+
       reviewForm.hidden = false;
-      helperNext.disabled = false;
-      helperNext.textContent = "Next question";
+
       updateProgress();
+
+      setBusy(false);
+
     }
+
+
+    /* =========================================
+       PROGRESS
+    ========================================= */
+
+    function updateProgress() {
+
+      const questions = getQuestions();
+
+      stepLabel.textContent =
+        `Question ${currentStep} of ${questions.length}`;
+
+      progressBar.style.width =
+        `${(currentStep / questions.length) * 100}%`;
+
+      helperBack.hidden =
+        currentStep === 1;
+
+    }
+
+
+    /* =========================================
+       BUSY
+    ========================================= */
+
+    function setBusy(value) {
+
+      busy = value;
+
+      aiAnswer.disabled =
+        value;
+
+      helperNext.disabled =
+        value;
+
+      helperNext.style.opacity =
+        value ? ".65" : "";
+
+      helperNext.textContent =
+        value
+          ? "Thinking…"
+          : currentStep === getQuestions().length
+            ? "Create my review"
+            : "Continue";
+
+    }
+
+
+    /* =========================================
+       SEND TO YOUR EXISTING VERCEL API
+    ========================================= */
 
     async function sendToOpenAI(prompt) {
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          userMessage: prompt
-        })
-      });
 
-      const data = await response.json();
+      const response =
+        await fetch(
+          API_URL,
+          {
+            method: "POST",
+
+            headers: {
+              "Content-Type":
+                "application/json"
+            },
+
+            body: JSON.stringify({
+              userMessage: prompt
+            })
+          }
+        );
+
+
+      const data =
+        await response.json();
+
 
       if (!response.ok) {
-        throw new Error(data.error || "Something went wrong.");
+
+        throw new Error(
+          data.error ||
+          "Something went wrong."
+        );
+
       }
+
 
       if (!data.result) {
-        throw new Error("No review was returned.");
+
+        throw new Error(
+          "OpenAI did not return a response."
+        );
+
       }
 
+
       return data.result;
+
     }
 
+
+    /* =========================================
+       BUILD FINAL REVIEW PROMPT
+    ========================================= */
+
     function buildReviewPrompt() {
+
       return `
+
 You are the Review Concierge for Legacy Portrait Art.
 
-A happy client is writing a genuine Google review after completing their photography session.
+A client is writing a genuine Google review.
 
 Their rating was ${selectedRating} out of 5 stars.
 
-We asked them these three questions:
+Use these two questions:
 
-1. ${QUESTIONS[0]}
-2. ${QUESTIONS[1]}
-3. ${QUESTIONS[2]}
+1. ${getQuestions()[0]}
+
+2. ${getQuestions()[1]}
+
 
 Here are the client's answers:
 
@@ -747,126 +1592,282 @@ ${answers[0] || ""}
 Question 2:
 ${answers[1] || ""}
 
-Question 3:
-${answers[2] || ""}
 
-Write a warm, genuine Google review using ONLY the information the client provided.
+YOUR JOB
 
-IMPORTANT:
-- Keep the client's voice.
-- Do not invent details.
-- Do not invent names.
-- Do not invent emotions or experiences.
-- Do not imply they have seen or purchased finished portraits.
-- Do not add exaggerated marketing language.
-- Do not make it sound corporate.
-- Keep the emotional meaning of their answers.
+Organize and lightly polish the client's own thoughts into
+a natural first-person Google review.
+
+You are a summarizer and editor, NOT a testimonial writer.
+The finished review must sound like the client, not like a
+marketing department.
+
+
+STRICT ACCURACY RULES
+
+- Use ONLY facts, feelings, opinions, and experiences explicitly
+  provided by the client.
+- Never invent details.
+- Never infer details that are merely possible.
+- Never add names that the client did not provide.
+- Never add family members, pets, relationships, locations,
+  events, products, sessions, or services that were not mentioned.
+- If the client says "one portrait," write about one portrait.
+  Never turn one portrait into "portraits" or multiple pieces.
+- Do not imply that the client has had previous sessions unless
+  they explicitly said so.
+- Do not turn a singular person into "our family" or "our children."
+- Do not intensify emotions. If they said "I liked it," do not
+  turn that into "I was deeply moved."
+- If an answer is vague, stay appropriately vague instead of
+  filling in the gap.
+- Do not manufacture a story arc.
+
+
+VOICE RULES
+
+- Preserve distinctive phrases the client used when they sound
+  natural.
+- Keep the client's personality and level of enthusiasm.
 - Correct grammar and spelling naturally.
-- Make it sound like a real person wrote it.
-- Write in first person.
+- Avoid corporate language.
+- Avoid polished marketing language.
+- Avoid clichés and generic phrases.
+- Do not insert SEO keywords.
+- Do not add prices, claims, guarantees, or promotional language.
 - Do not mention AI.
-- Do not explain what you are doing.
+- Write in first person.
 - Do not put quotation marks around the review.
 - Return ONLY the finished review.
-- Aim for roughly 100–175 words.
-      `;
+
+
+LENGTH
+
+Aim for approximately 100–175 words when the client provided
+enough material to support that length.
+
+If the client gave short answers, keep the review shorter.
+Never add content simply to reach the target length.
+
+
+FINAL CHECK
+
+Before returning the review, verify that every factual detail
+and emotional statement can be traced directly to the client's
+answers.
+
+Your job is to make their thoughts easier to read, not to make
+their experience sound better than they described it.
+
+`;
+
     }
 
-    function setBusy(value) {
-      busy = value;
-      aiAnswer.disabled = value;
-      helperNext.disabled = value;
-      helperNext.textContent = value
-        ? "Creating…"
-        : currentStep === QUESTIONS.length
-          ? "Create my review"
-          : "Next question";
-    }
+    /* =========================================
+       CONTINUE
+    ========================================= */
 
-    reviewForm.addEventListener("submit", async event => {
-      event.preventDefault();
+    reviewForm.addEventListener(
+      "submit",
+      async event => {
 
-      if (busy) return;
+        event.preventDefault();
 
-      const answer = aiAnswer.value.trim();
+        if (busy) return;
 
-      if (!answer) {
+
+        const answer =
+          aiAnswer.value.trim();
+
+
+        if (!answer) {
+
+          aiStatus.textContent =
+            "Please share a few words before continuing.";
+
+          aiAnswer.focus();
+
+          return;
+
+        }
+
+
+        /*
+          Save the answer.
+        */
+
+        answers[currentStep - 1] =
+          answer;
+
+
+        /*
+          Continue until the final question.
+        */
+
+        if (currentStep < getQuestions().length) {
+
+          currentStep++;
+
+          aiQuestion.textContent =
+            getQuestions()[currentStep - 1];
+
+          aiAnswer.value = "";
+
+          aiStatus.textContent = "";
+
+          updateProgress();
+
+          aiAnswer.focus();
+
+          return;
+
+        }
+
+
+        /*
+          Final question:
+          Generate the final review.
+        */
+
+        setBusy(true);
+
         aiStatus.textContent =
-          "Please share a few words before continuing.";
-        aiAnswer.focus();
-        return;
+          "Creating your review…";
+
+
+        try {
+
+          const prompt =
+            buildReviewPrompt();
+
+
+          const review =
+            await sendToOpenAI(
+              prompt
+            );
+
+
+          generatedReview.value =
+            review.trim();
+
+
+          reviewForm.hidden = true;
+
+          reviewResult.hidden = false;
+
+          aiStatus.textContent = "";
+
+          generatedReview.focus();
+
+          reviewResult.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+
+        } catch (error) {
+
+          console.error(error);
+
+          aiStatus.textContent =
+            error.message ||
+            "Something went wrong. Please try again.";
+
+        } finally {
+
+          setBusy(false);
+
+        }
+
       }
+    );
 
-      answers[currentStep - 1] = answer;
 
-      if (currentStep < QUESTIONS.length) {
-        currentStep++;
-        aiQuestion.textContent = QUESTIONS[currentStep - 1];
-        aiAnswer.value = "";
+    /* =========================================
+       PREVIOUS
+    ========================================= */
+
+    helperBack.addEventListener(
+      "click",
+      () => {
+
+        if (busy) return;
+
+        if (currentStep <= 1) return;
+
+
+        currentStep--;
+
+        aiQuestion.textContent =
+          getQuestions()[currentStep - 1];
+
+        aiAnswer.value =
+          answers[currentStep - 1] || "";
+
         aiStatus.textContent = "";
+
         updateProgress();
+
         aiAnswer.focus();
-        return;
+
       }
+    );
 
-      setBusy(true);
-      aiStatus.textContent = "Creating your review…";
 
-      try {
-        const review = await sendToOpenAI(buildReviewPrompt());
+    /* =========================================
+       COPY REVIEW
+    ========================================= */
 
-        generatedReview.value = review.trim();
-        reviewForm.hidden = true;
-        reviewResult.hidden = false;
-        aiStatus.textContent = "";
+    copyReview.addEventListener(
+      "click",
+      async () => {
 
-        generatedReview.focus();
-        reviewResult.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      } catch (error) {
-        console.error(error);
-        aiStatus.textContent =
-          error.message ||
-          "Something went wrong. Please try again.";
-      } finally {
-        setBusy(false);
+        const reviewText =
+          typeof generatedReview === "string"
+            ? generatedReview
+            : generatedReview?.value || "";
+
+        if (!reviewText) return;
+
+        let copied = false;
+
+        try {
+
+          await navigator.clipboard.writeText(
+            reviewText
+          );
+
+          copied = true;
+
+        } catch (error) {
+
+          copied = false;
+
+        }
+
+        if (copied) {
+
+          copyReview.textContent =
+            "✓ Copied! Opening Google…";
+
+        }
+
+        window.open(
+          GOOGLE_REVIEW_URL,
+          "_blank",
+          "noopener,noreferrer"
+        );
+
       }
-    });
+    );
 
-    helperBack.addEventListener("click", () => {
-      if (busy || currentStep <= 1) return;
-
-      currentStep--;
-      aiQuestion.textContent = QUESTIONS[currentStep - 1];
-      aiAnswer.value = answers[currentStep - 1] || "";
-      aiStatus.textContent = "";
-      updateProgress();
-      aiAnswer.focus();
-    });
-
-    copyReview.addEventListener("click", async () => {
-      const review = generatedReview.value;
-
-      try {
-        await navigator.clipboard.writeText(review);
-        copyStatus.textContent =
-          "Copied. Your review is ready to paste into Google.";
-      } catch {
-        generatedReview.select();
-        document.execCommand("copy");
-        copyStatus.textContent =
-          "Copied. Your review is ready to paste into Google.";
-      }
-    });
-
-    startOver.addEventListener("click", () => {
-      resetInterview();
-      aiAnswer.focus();
-    });
+     /* =========================================
+       INITIALIZE
+    ========================================= */
 
     updateProgress();
+
   </script>
+
 </body>
 </html>
