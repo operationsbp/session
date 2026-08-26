@@ -86,8 +86,8 @@ Do not force a recommendation at the end unless the client expressed one.
 Do not use em-dashes
 LENGTH
 Use a natural length based on the substance of the client’s answers.
-Aim for approximately 130–160 words when enough meaningful detail is available.
-A natural range of 100–180 words is preferred.
+Aim for approximately 90-120 words when enough meaningful detail is available.
+A natural range of 100–130 words is preferred.
 A shorter review is appropriate when the client provides brief answers.
 Do not add filler merely to reach a word count.
 Do not remove meaningful emotional details merely to stay under 160 words.
