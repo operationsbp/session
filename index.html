@@ -47,7 +47,6 @@ textarea:focus{outline:3px solid rgba(183,146,74,.18);outline-offset:2px;border-
 .helper-actions,.result-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px}
 .result{margin-top:32px;text-align:left}.result h3{margin-bottom:15px}.result textarea{min-height:250px}.result-actions{justify-content:flex-start;flex-wrap:wrap}
 .copy-status{color:var(--muted);font-size:13px;margin-top:12px}.result-intro{margin:-2px 0 18px;color:var(--muted);font:15px/1.65 Georgia,"Times New Roman",serif}
-.photo-note{margin-top:28px;padding:26px 24px;background:#f8f3e9;border:1px solid var(--gold);text-align:center}.photo-icon{display:block;margin-bottom:8px;color:var(--gold-dark);font-size:25px}.photo-note h3{margin-bottom:10px;font-size:clamp(22px,4vw,28px)}.photo-note p{max-width:540px;margin:0 auto;color:var(--muted);line-height:1.65}
 .options-section{margin-top:48px}.five-star-options{margin-top:34px}.google-primary{margin-top:28px;padding:30px clamp(20px,5vw,38px);background:#f8f3e9;border:1px solid var(--line);text-align:center}.google-primary .button{min-width:min(100%,360px)}
 .private-feedback-cta{margin:0 auto;padding:32px clamp(20px,5vw,38px);background:#f8f3e9;border:1px solid var(--line);text-align:center}.private-feedback-cta h3{margin:0}.private-feedback-cta p{max-width:535px;margin:13px auto 22px;color:var(--muted);line-height:1.65}
 .private-feedback-form{width:100%;max-width:680px;height:720px;margin:26px auto 0;overflow:visible;border-radius:8px}.private-feedback-form iframe{display:block;width:100%;height:720px;border:none;border-radius:8px}
@@ -55,7 +54,7 @@ textarea:focus{outline:3px solid rgba(183,146,74,.18);outline-offset:2px;border-
 .direct{text-align:center}.change-rating{display:block;margin:26px auto 0;padding:8px}.google-feedback-placeholder{pointer-events:none;cursor:default}
 .screen{animation:fade .36s ease both}[hidden]{display:none!important}
 @keyframes fade{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
-@media(max-width:580px){.app{padding:0;min-height:auto}.card{border-left:0;border-right:0;padding:58px 24px 44px}.card:before{inset:8px}.choice{padding:25px 18px}.assistant-heading{display:block}.time{display:inline-block;margin-top:8px}.helper-actions,.result-actions{align-items:stretch;flex-direction:column-reverse}.helper-actions .button,.result-actions .button{width:100%}.question label{font-size:21px}.hint{font-size:17px}.photo-note{padding:24px 18px}}
+@media(max-width:580px){.app{padding:0;min-height:auto}.card{border-left:0;border-right:0;padding:58px 24px 44px}.card:before{inset:8px}.choice{padding:25px 18px}.assistant-heading{display:block}.time{display:inline-block;margin-top:8px}.helper-actions,.result-actions{align-items:stretch;flex-direction:column-reverse}.helper-actions .button,.result-actions .button{width:100%}.question label{font-size:21px}.hint{font-size:17px}}
 </style>
 </head>
 <body>
@@ -89,8 +88,6 @@ textarea:focus{outline:3px solid rgba(183,146,74,.18);outline-offset:2px;border-
 <button id="open-helper" class="button button-gold" type="button">Help me write my review</button>
 </div>
 
-
-
 <div id="assistant" class="assistant" hidden>
 <div class="assistant-heading"><div><p class="eyebrow">Your review concierge</p><h3>Tell us what this experience meant to you.</h3></div><span class="time">About 30 seconds</span></div>
 <form id="review-form">
@@ -114,19 +111,11 @@ textarea:focus{outline:3px solid rgba(183,146,74,.18);outline-offset:2px;border-
 <textarea id="generated-review" rows="10" aria-label="Your editable review"></textarea>
 <div class="result-actions"><button id="copy-review" class="button button-gold" type="button">COPY/PASTE &amp; SHARE ON GOOGLE</button></div>
 <p id="copy-status" class="copy-status" role="status"></p>
-
-
 </div>
 </div>
 
 <div id="review-options" class="options-section">
 <div id="five-star-options" class="five-star-options" hidden>
-
-<div class="photo-note">
-<span class="photo-icon">📸</span>
-<h3>Add a Photo to Your Review</h3>
-<p>If your portrait is already hanging in your home, consider adding a photo to your Google review. It helps other families imagine what their own finished artwork could look like.</p>
-</div>
 
 <div class="google-primary">
 <p class="choice-kicker">Already know what you’d like to say?</p>
@@ -163,6 +152,7 @@ const QUESTIONS=[
 "What did you love most about your experience with us, from your photography session through seeing your portraits for the first time?",
 "When you saw your portraits, what stood out to you most, and how did they make you feel?"
 ];
+
 function getQuestions(){return QUESTIONS}
 
 const ratingScreen=document.getElementById("rating-screen");
@@ -387,4 +377,3 @@ updateProgress();
 </script>
 </body>
 </html>
-
